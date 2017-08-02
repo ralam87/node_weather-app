@@ -13,7 +13,7 @@ const aOptions = {
 const formatOptions = {
   demand : false,
   alias : "format",
-  describe : "Boolean value as to weather you want the temperature in celsius",
+  describe : "Whether you want the temperature in celsius",
   boolean : true
 }
 

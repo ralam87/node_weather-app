@@ -20,7 +20,7 @@ const getWeather = (lng, lat, callback) => {
 
 const convert = (temp) => {
   let conversion = (temp - 32) * 5/9
-  return Math.round(conversion) 
+  return Math.round(conversion * 100) / 100
 }
 
 module.exports = {
