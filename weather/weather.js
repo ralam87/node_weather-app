@@ -18,6 +18,12 @@ const getWeather = (lng, lat, callback) => {
   })
 }
 
+const convert = (temp) => {
+  let conversion = (temp - 32) * 5/9
+  return Math.round(conversion) 
+}
+
 module.exports = {
-  getWeather
+  getWeather,
+  convert
 }

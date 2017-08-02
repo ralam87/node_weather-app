@@ -10,9 +10,17 @@ const aOptions = {
   string : true
 }
 
+const formatOptions = {
+  demand : false,
+  alias : "format",
+  describe : "Boolean value as to weather you want the temperature in celsius",
+  boolean : true
+}
+
 const argv = yargs
   .options({
-    a : aOptions
+    a : aOptions,
+    f : formatOptions
   })
   .help()
   .alias('help', 'h')
@@ -29,7 +37,10 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
       errorMessage ?
         console.log(errorMessage)
         :
-        console.log(`The current temparature is ${weatherResults.temperature}, but feels like ${weatherResults.apparentTemperature}`)
+        argv.format ?
+        console.log(`The current temparature is ${weather.convert(weatherResults.temperature)} degrees celsius, but feels like ${weather.convert(weatherResults.apparentTemperature)} degrees celsius`)
+        :
+        console.log(`The current temparature is ${weatherResults.temperature} fahrenheit, but feels like ${weatherResults.apparentTemperature} fahrenheit`)
     })
   }
 })
