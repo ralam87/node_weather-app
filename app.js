@@ -33,7 +33,7 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
   } else {
     console.log(results.address)
 
-    weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {
+    weather.getWeather(results.longitude, results.latitude, (errorMessage, weatherResults) => {
       errorMessage ?
         console.log(errorMessage)
         :

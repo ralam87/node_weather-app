@@ -3,11 +3,12 @@ const request = require('request')
 const getWeather = (lng, lat, callback) => {
 
   const requestOptions = {
-    url: `https://api.darksky.net/forecast/e3b4b75309a6673952635648623fcefd/${lng},${lat}`,
+    url: `https://api.darksky.net/forecast/e3b4b75309a6673952635648623fcefd/${lat},${lng}`,
     json: true
   }
-
+  
   request(requestOptions, (error, response, body) => {
+
     !error && response.statusCode === 200 ?
       callback(undefined, {
         temperature : body.currently.temperature,
