@@ -4,7 +4,7 @@ const axios = require('axios')
 const weather = require('./weather/weather')
 
 const aOptions = {
-  demand : true,
+  demand : false,
   alias : "address",
   describe : "Address to fetch weather for",
   string : true
@@ -26,7 +26,10 @@ const argv = yargs
   .alias('help', 'h')
   .argv
 
-  const encodedAddress = encodeURIComponent(argv.address)
+  const encodedAddress = argv.address ?
+    encodeURIComponent(argv.address)
+    :
+    encodeURIComponent("B19 2NW Birmingham")
 
   const geocodeURL =  `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`
 
